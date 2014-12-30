@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HelloWorldContorl2 {
 	@RequestMapping("/helloWorld2")
 	public String helloWorld(Model model) {
+		// org.springframework.jd
 		model.addAttribute("name", "Hello World!");
 		return "helloWorld2";
 	}
