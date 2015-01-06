@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Hello</title>
+<title>GoodsType</title>
 </head>
 <body>
-<h1>Hello2 : ${name}</h1>
+<h1>This is goods type!!</h1>
+<h2>${name}</h2>
 </body>
 </html>

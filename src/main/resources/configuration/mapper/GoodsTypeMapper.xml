@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.erms.hello.dao.GoodsTypeMapper">
+	<!-- 新增记录 -->
+	<insert id="insert" parameterType="org.erms.hello.bean.GoodsType" useGeneratedKeys="true" keyProperty="uuid">
+		<![CDATA[Insert into qkj_t_goods_type(uuid,type_name,type_group,status,lm_user,lm_time) 
+					values(#{uuid},#{type_name},#{type_group},#{status},#{lm_user},now())]]>
+	</insert>
+	<!-- 查询单条记录 -->
+	<select id="get" parameterType="int" resultType="org.erms.hello.bean.GoodsType">
+		<![CDATA[Select * from qkj_t_goods_type where uuid = #{uuid}]]>
+	</select>
+	<!-- 修改记录 -->
+	<update id="update" parameterType="org.erms.hello.bean.GoodsType">
+		<![CDATA[update qkj_t_goods_type set type_name = #{type_name},type_group = #{type_group} where uuid = #{uuid}]]>
+	</update>
+	<!-- 查询所有记录 -->
+	<select id="select" resultType="org.erms.hello.bean.GoodsType">
+		<![CDATA[SELECT `uuid`,`type_name`,`type_group`,`status`,`lm_user`,`lm_time` FROM `huzhu`.`qkj_t_goods_type` LIMIT 0, 1000]]>
+	</select>
+	<!-- 删除记录 -->
+	<delete id="delete" parameterType="int">
+		<![CDATA[delete from qkj_t_goods_type where uuid = #{uuid}]]>
+	</delete>
+	<!-- 删除记录 -->
+	<delete id="updateStatus" parameterType="int">
+		<![CDATA[update qkj_t_goods_type set status = #{status} where uuid = #{uuid}]]>
+	</delete>
+</mapper>  

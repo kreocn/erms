@@ -37,7 +37,7 @@
 
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<!-- 扫描入口 -->
-		<property name="basePackage" value="configuration.mapper" />
+		<property name="basePackage" value="org.erms" />
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 		<!-- 只有实现某接口才扫描 -->
 		<!-- <property name="markerInterface" value="com.xxx.dao.BatchDao" /> -->
