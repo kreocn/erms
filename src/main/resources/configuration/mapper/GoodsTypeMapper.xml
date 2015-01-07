@@ -5,6 +5,9 @@
 	<insert id="insert" parameterType="org.erms.hello.bean.GoodsType" useGeneratedKeys="true" keyProperty="uuid">
 		<![CDATA[Insert into qkj_t_goods_type(uuid,type_name,type_group,status,lm_user,lm_time) 
 					values(#{uuid},#{type_name},#{type_group},#{status},#{lm_user},now())]]>
+		<selectKey resultType="java.lang.Integer" keyProperty="uuid">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
 	</insert>
 	<!-- 查询单条记录 -->
 	<select id="get" parameterType="int" resultType="org.erms.hello.bean.GoodsType">

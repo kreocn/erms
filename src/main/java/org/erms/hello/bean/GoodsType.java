@@ -1,27 +1,15 @@
 package org.erms.hello.bean;
 
 import java.util.Date;
-
 import org.erms.base.BaseBean;
 
 public class GoodsType implements BaseBean {
 	private Integer uuid;// (int) 主键
 	private String type_name;// (varchar) 类型名称
-	private String type_group;// (varchar) 属性的可分组,用','隔开
-	private Integer status;// (int) 状态 0 正常 1 停用
+	private String type_group;// (varchar) 属性分组
+	private Integer status;// (int) 状态
 	private String lm_user;// (varchar) 0
 	private Date lm_time;// (datetime) 0
-
-	// 以下为非数据库字段
-	private Integer item_num;
-
-	public Integer getItem_num() {
-		return item_num;
-	}
-
-	public void setItem_num(Integer item_num) {
-		this.item_num = item_num;
-	}
 
 	public Integer getStatus() {
 		return status;

@@ -3,20 +3,22 @@ package org.erms.hello.service;
 import java.util.HashMap;
 import java.util.List;
 
-import org.erms.base.BaseDao;
-import org.erms.base.BaseService;
 import org.erms.hello.bean.GoodsType;
 import org.erms.hello.dao.GoodsTypeMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class GoodsTypeService implements BaseService<GoodsType> {
+public class GoodsTypeService {
 	@Autowired
 	private GoodsTypeMapper mapper;
 
 	public List<GoodsType> select(HashMap<String, Object> map) {
 		return mapper.select(map);
+	}
+
+	public Integer count(HashMap<String, Object> map) {
+		return mapper.count(map);
 	}
 
 	public GoodsType get(Object uuid) {
@@ -35,4 +37,7 @@ public class GoodsTypeService implements BaseService<GoodsType> {
 		return mapper.delete(uuid);
 	}
 
+	public Integer updateStatus(GoodsType entity) {
+		return mapper.updateStatus(entity);
+	}
 }
