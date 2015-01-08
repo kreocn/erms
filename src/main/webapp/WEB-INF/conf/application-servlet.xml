@@ -7,11 +7,31 @@
 										http://www.springframework.org/schema/context/spring-context.xsd
 										http://www.springframework.org/schema/mvc
 										http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+	<!-- MyBatis分页插件JSON转换器 -->
+	<!-- 转换后JSON格式 -->
+	<!-- { "items":[ {"NAME":"xiaoma","AGE":30,"GENDER":1,"ID":3,"CITY":"BeiJing"}, {"NAME":"xiaoli","AGE":30,"SCORE":85,"GENDER":1,"ID":1,"CITY":"BeiJing"}, {"NAME":"xiaowang","AGE":30,"SCORE":92,"GENDER":0,"ID":2,"CITY":"BeiJing"}, 
+		{"NAME":"xiaoshao","AGE":30,"SCORE":99,"GENDER":0,"ID":4,"CITY":"BeiJing"} ], -->
+	<!-- "slider": [1, 2, 3, 4, 5, 6, 7], "hasPrePage": false, "startRow": 1, "offset": 0, "lastPage": false, "prePage": 1, "hasNextPage": true, "nextPage": 2, "endRow": 30, "totalCount": 
+		40351, "firstPage": true, "totalPages": 1346, "limit": 30, "page": 1 } -->
+	<mvc:annotation-driven>
+		<mvc:message-converters register-defaults="true">
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<constructor-arg value="UTF-8" />
+			</bean>
+			<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+				<property name="objectMapper">
+					<bean class="com.github.miemiedev.mybatis.paginator.jackson2.PageListJsonMapper" />
+				</property>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+
 	<!-- 静态资源文件 -->
 	<mvc:resources mapping="/images/**" location="/images/" cache-period="31556926" />
 	<mvc:resources mapping="/js/**" location="/js/" cache-period="31556926" />
 	<mvc:resources mapping="/css/**" location="/css/" cache-period="31556926" />
-		
+
 	<!-- 默认View配置 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>  
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.erms.hello.dao.GoodsTypeMapper">
-	<!-- 新增记录 -->
-	<insert id="insert" parameterType="org.erms.hello.bean.GoodsType" useGeneratedKeys="true" keyProperty="uuid">
-		<![CDATA[Insert into qkj_t_goods_type(uuid,type_name,type_group,status,lm_user,lm_time) 
-					values(#{uuid},#{type_name},#{type_group},#{status},#{lm_user},now())]]>
+	<!-- 新增记录 useGeneratedKeys="true" keyProperty="uuid" -->
+	<insert id="insert" parameterType="org.erms.hello.bean.GoodsType">
+		<![CDATA[Insert into qkj_t_goods_type(type_name,type_group,status,lm_user,lm_time) 
+					values(#{type_name},#{type_group},#{status},#{lm_user},now())]]>
 		<selectKey resultType="java.lang.Integer" keyProperty="uuid">
 			SELECT LAST_INSERT_ID()
 		</selectKey>

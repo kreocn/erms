@@ -1,7 +1,7 @@
 package org.erms.hello.service;
 
-import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.erms.hello.bean.GoodsType;
 import org.erms.hello.dao.GoodsTypeMapper;
@@ -13,11 +13,11 @@ public class GoodsTypeService {
 	@Autowired
 	private GoodsTypeMapper mapper;
 
-	public List<GoodsType> select(HashMap<String, Object> map) {
+	public List<GoodsType> select(Map<String, Object> map) {
 		return mapper.select(map);
 	}
 
-	public Integer count(HashMap<String, Object> map) {
+	public Integer count(Map<String, Object> map) {
 		return mapper.count(map);
 	}
 
@@ -25,16 +25,16 @@ public class GoodsTypeService {
 		return mapper.get(uuid);
 	}
 
-	public Integer insert(GoodsType entity) {
-		return mapper.insert(entity);
+	public void insert(GoodsType entity) {
+		mapper.insert(entity);
 	}
 
-	public Integer update(GoodsType entity) {
-		return mapper.update(entity);
+	public void update(GoodsType entity) {
+		mapper.update(entity);
 	}
 
-	public Integer delete(Object uuid) {
-		return mapper.delete(uuid);
+	public void delete(Object uuid) {
+		mapper.delete(uuid);
 	}
 
 	public Integer updateStatus(GoodsType entity) {

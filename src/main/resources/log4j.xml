@@ -13,7 +13,7 @@
 	</appender>
 
 	<appender name="TO_FILE" class="org.apache.log4j.DailyRollingFileAppender">
-		<param name="File" value="${catalina.home}/logs/erp/info.log" />
+		<param name="File" value="${catalina.home}/logs/erms/info.log" />
 		<param name="DatePattern" value="'.'yyyy-MM-dd" />
 		<param name="Threshold" value="INFO" />
 		<!-- <filter class="org.apache.log4j.varia.LevelRangeFilter"> <param name="levelMin" value="INFO" /> <param name="levelMax" 
@@ -24,7 +24,7 @@
 	</appender>
 
 	<appender name="ERROR_TO_FILE" class="org.apache.log4j.DailyRollingFileAppender">
-		<param name="File" value="${catalina.home}/logs/erp/error.log" />
+		<param name="File" value="${catalina.home}/logs/erms/error.log" />
 		<param name="DatePattern" value="'.'yyyy-MM-dd" />
 		<param name="Threshold" value="ERROR" />
 		<layout class="org.apache.log4j.PatternLayout">

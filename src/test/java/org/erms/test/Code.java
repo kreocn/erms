@@ -1,11 +1,22 @@
 package org.erms.test;
 
-import java.util.UUID;
-
 public class Code {
+
+	String abc;
+
+	public String getAbc() {
+		return abc;
+	}
+
+	public void setAbc(String abc) {
+		this.abc = abc;
+	}
+
 	public Code() {
-		for (int i = 0; i < 20; i++) {
-			System.out.println(UUID.randomUUID().toString().replaceAll("-", "").toUpperCase());
+		if (abc == null) {
+			System.out.println("true");
+		} else {
+			System.out.println("false");
 		}
 	}
 
