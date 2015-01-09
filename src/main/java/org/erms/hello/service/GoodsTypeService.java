@@ -3,6 +3,7 @@ package org.erms.hello.service;
 import java.util.List;
 import java.util.Map;
 
+import org.erms.base.MyPageBounds;
 import org.erms.hello.bean.GoodsType;
 import org.erms.hello.dao.GoodsTypeMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +14,8 @@ public class GoodsTypeService {
 	@Autowired
 	private GoodsTypeMapper mapper;
 
-	public List<GoodsType> select(Map<String, Object> map) {
-		return mapper.select(map);
+	public List<GoodsType> select(Map<String, Object> map, Integer page) {
+		return mapper.select(map, MyPageBounds.createPageBounds(page));
 	}
 
 	public Integer count(Map<String, Object> map) {

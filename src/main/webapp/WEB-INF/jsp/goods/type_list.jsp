@@ -31,6 +31,15 @@
 		<td><fmt:formatDate value="${it.lm_time}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
 	</tr>
 	</c:forEach>
+	<tr>
+		<td colspan="20">
+			上一页: ${goodsTypesPaginator.prePage} 
+			当前页: ${goodsTypesPaginator.page} 
+			下一页: ${goodsTypesPaginator.nextPage} 
+			总页数: ${goodsTypesPaginator.totalPages} 
+			总条数: ${goodsTypesPaginator.totalCount} 
+		</td>
+	</tr>
 	</table>
 </body>
 </html>

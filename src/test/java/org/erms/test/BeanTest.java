@@ -6,7 +6,7 @@ import org.apache.commons.beanutils.PropertyUtils;
 
 public class BeanTest {
 	public static void printBean(Object bean) {
-		try {
+		if (bean != null) try {
 			Map<String, Object> ms = PropertyUtils.describe(bean);
 			for (Map.Entry<String, Object> m : ms.entrySet()) {
 				try {
@@ -18,5 +18,6 @@ public class BeanTest {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		else System.out.println("bean is null!");
 	}
 }

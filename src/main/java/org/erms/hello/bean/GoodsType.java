@@ -3,7 +3,6 @@ package org.erms.hello.bean;
 import java.util.Date;
 
 import org.erms.base.BaseBean;
-import org.erms.base.IPage;
 
 public class GoodsType implements BaseBean {
 	private Integer uuid;// (int) 主键
@@ -12,7 +11,6 @@ public class GoodsType implements BaseBean {
 	private Integer status;// (int) 状态
 	private String lm_user;// (varchar) 0
 	private Date lm_time;// (datetime) 0
-	private IPage iPage;// 分页专用
 
 	public Integer getStatus() {
 		return status;
@@ -61,13 +59,4 @@ public class GoodsType implements BaseBean {
 	public void setLm_time(Date lm_time) {
 		this.lm_time = lm_time;
 	}
-
-	public IPage getiPage() {
-		return iPage;
-	}
-
-	public void setiPage(IPage iPage) {
-		this.iPage = iPage;
-	}
-
 }

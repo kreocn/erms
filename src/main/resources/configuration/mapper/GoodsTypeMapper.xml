@@ -19,7 +19,11 @@
 	</update>
 	<!-- 查询所有记录 -->
 	<select id="select" resultType="org.erms.hello.bean.GoodsType">
-		<![CDATA[SELECT `uuid`,`type_name`,`type_group`,`status`,`lm_user`,`lm_time` FROM `huzhu`.`qkj_t_goods_type` LIMIT 0, 1000]]>
+		<![CDATA[SELECT `uuid`,`type_name`,`type_group`,`status`,`lm_user`,`lm_time` FROM `huzhu`.`qkj_t_goods_type` ]]>
+		<where>
+			<if test="uuid != null">uuid = #{uuid}</if>
+			<if test="type_name != null">type_name Like #{type_name}</if>
+		</where>
 	</select>
 	<!-- 删除记录 -->
 	<delete id="delete" parameterType="int">

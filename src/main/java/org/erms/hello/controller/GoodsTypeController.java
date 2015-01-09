@@ -1,6 +1,5 @@
 package org.erms.hello.controller;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/goods")
@@ -61,25 +60,27 @@ public class GoodsTypeController {
 		// return "/goods/type_edit";
 	}
 
-	@ResponseBody
 	@RequestMapping("/type_list")
-	public String list(@RequestParam GoodsType goodsType, Model model) {
-		goodsTypes = new ArrayList<GoodsType>();
+	public String list(GoodsType goodsType, Integer page, Model model) {
+		// goodsTypes = new ArrayList<GoodsType>();
 		try {
-			goodsTypes.addAll(service.select(PropertyUtils.describe(goodsType)));
-		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InvocationTargetException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NoSuchMethodException e) {
-			// TODO Auto-generated catch block
+			System.out.println("===========================");
+			BeanTest.printBean(goodsType);
+			System.out.println("**************");
+			System.out.println(PropertyUtils.describe(goodsType));
+			System.out.println("**************");
+			System.out.println("Page:" + page);
+			System.out.println("===========================");
+			goodsTypes = service.select(PropertyUtils.describe(goodsType), page);
+			// goodsTypes.addAll(service.select(null, page));
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		// model.addAttribute("name", "Hello World!");
-		// model.addAttribute("goodsTypes", goodsTypes);
+		model.addAttribute("goodsTypes", goodsTypes);
 		// return "redirect:/index.jsp";
+
+		// return new ModelAndView("/goods/type_list", "goodsTypes", goodsTypes);
 		return "/goods/type_list";
 	}
 }
