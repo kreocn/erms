@@ -1,5 +1,7 @@
 package org.erms.test;
 
+import java.util.ArrayList;
+
 public class Code {
 
 	String abc;
@@ -13,10 +15,14 @@ public class Code {
 	}
 
 	public Code() {
-		if (abc == null) {
-			System.out.println("true");
-		} else {
-			System.out.println("false");
+		ArrayList<StringBuffer> sbl = new ArrayList<>();
+		sbl.add(3, new StringBuffer());
+		for (int i = 0; i < 5; i++) {
+			try {
+				System.out.println(i + ":" + sbl.get(i));
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
 		}
 	}
 
