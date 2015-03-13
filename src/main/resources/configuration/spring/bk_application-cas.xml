@@ -5,19 +5,19 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 
 	<!-- Enable security, let the casAuthenticationEntryPoint handle all intercepted urls. The CAS_FILTER needs to be in the right position within the filter chain. -->
 	<security:http entry-point-ref="casAuthenticationEntryPoint" auto-config="true">
-		<security:intercept-url pattern="/**" access="ROLE_LOGIN" />
-		<!-- <security:custom-filter ref="casServerLogoutFilter" position="LOGOUT_FILTER" /> <security:custom-filter ref="casClientLogoutFilter" before="CAS_FILTER" /> <security:custom-filter 
-			ref="requestSingleLogoutFilter" before="LOGOUT_FILTER" /> <security:custom-filter position="FORM_LOGIN_FILTER" ref="casFilter" /> -->
+		<security:intercept-url pattern="/**" access="ROLE_USER" />
 		<security:custom-filter position="CAS_FILTER" ref="casAuthenticationFilter" />
 	</security:http>
 
+	<!-- <security:custom-filter ref="casServerLogoutFilter" position="LOGOUT_FILTER" /> -->
+	<!--<security:custom-filter ref="casClientLogoutFilter" before="CAS_FILTER" /> -->
+	<!--<security:custom-filter ref="requestSingleLogoutFilter" before="LOGOUT_FILTER" /> <security:custom-filter position="FORM_LOGIN_FILTER" ref="casFilter" /> -->
 	<!-- 注销客户端 -->
 	<!-- <bean id="casClientLogoutFilter" class="org.jasig.cas.client.session.SingleSignOutFilter" /> -->
 	<!-- 注销服务器端 -->
-	<!-- <bean id="casServerLogoutFilter" class="org.springframework.security.web.authentication.logout.LogoutFilter"> <constructor-arg value="https://login.qkjchina.com/cas/logout" /> 
-		<constructor-arg> <bean class="org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler" /> </constructor-arg> <property name="filterProcessesUrl" value="/j_spring_cas_security_logout" 
-		/> </bean> -->
-
+	<!-- <bean id="casServerLogoutFilter" class="org.springframework.security.web.authentication.logout.LogoutFilter"><constructor-arg value="https://login.qkjchina.com/cas/logout" /><constructor-arg><bean 
+		class="org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler" /></constructor-arg><property name="filterProcessesUrl" value="/j_spring_cas_security_logout" 
+		/></bean> -->
 	<!-- Required for the casProcessingFilter, so define it explicitly set and specify an Id Even though the authenticationManager is created by default when namespace based config is 
 		used. -->
 	<security:authentication-manager alias="authenticationManager">
