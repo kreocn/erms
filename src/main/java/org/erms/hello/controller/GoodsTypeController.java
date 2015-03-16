@@ -53,6 +53,7 @@ public class GoodsTypeController {
 		// service.insert(goodsType);
 		// System.out.println("Service Insert Successful!" + ":" + goodsType.getUuid());
 		// BeanTest.printBean(goodsType);
+		// return "forward:/hello";
 		return "redirect:type_list";
 		// return "/goods/type_edit";
 	}

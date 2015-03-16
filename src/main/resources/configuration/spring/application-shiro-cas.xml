@@ -16,10 +16,12 @@
 		</property>
 		<property name="filterChainDefinitions">
 			<value>
-				/shiro-cas = casFilter  
+				/ = anon
+				/index.jsp = anon
+				/shiro-cas = casFilter
 				/** = roles[ROLE_USER]
 			</value>
-			<!-- /shiro-cas = casFilter  /admin/** = roles[ROLE_USER] /** = anon -->
+			<!-- /shiro-cas = casFilter /admin/** = roles[ROLE_USER] /** = anon -->
 		</property>
 	</bean>
 	<bean id="casFilter" class="org.apache.shiro.cas.CasFilter">
@@ -34,7 +36,8 @@
 	</bean>
 	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
 		<property name="realm" ref="casRealm" />
-		<property name="subjectFactory" ref="casSubjectFactory" />
+		<!-- remember me功能开启 -->
+		<!-- <property name="subjectFactory" ref="casSubjectFactory" /> -->
 	</bean>
 	<!-- 如果要实现cas的remember me的功能，需要用到下面这个bean，并设置到securityManager的subjectFactory中 -->
 	<bean id="casSubjectFactory" class="org.apache.shiro.cas.CasSubjectFactory" />
