@@ -16,8 +16,8 @@
 		<param name="File" value="${catalina.home}/logs/erms/info.log" />
 		<param name="DatePattern" value="'.'yyyy-MM-dd" />
 		<param name="Threshold" value="INFO" />
-		<!-- <filter class="org.apache.log4j.varia.LevelRangeFilter"> <param name="levelMin" value="INFO" /> <param name="levelMax" 
-			value="FATAL" /> <param name="acceptOnMatch" value="true" /> </filter> -->
+		<!-- <filter class="org.apache.log4j.varia.LevelRangeFilter"> <param name="levelMin" value="INFO" /> <param name="levelMax" value="FATAL" /> <param name="acceptOnMatch" value="true" 
+			/> </filter> -->
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss}][%p][%c{3\}] Message:%m%n" />
 		</layout>
@@ -32,34 +32,17 @@
 		</layout>
 	</appender>
 
-	<category name="org.apache.struts2.config" additivity="false">
-		<priority value="warn" />
-	</category>
-
-	<category name="org.apache.struts2.util.TextProviderHelper" additivity="false">
-		<priority value="error" />
-	</category>
-
-	<category name="com.opensymphony.xwork2.config" additivity="false">
-		<priority value="warn" />
-	</category>
-
-	<category name="com.opensymphony.xwork2.ognl.OgnlValueStack" additivity="false">
-		<priority value="error" />
-	</category>
-
-	<category name="com.opensymphony.xwork2.ognl.OgnlUtil" additivity="false">
-		<priority value="error" />
+	<category name="org.erms.base.BaseMapper" additivity="false">
+		<priority value="DEBUG" />
 	</category>
 
 	<category name="java.sql" additivity="true">
-		<priority value="debug" />
+		<priority value="DEBUG" />
 		<appender-ref ref="TO_CONSOLE" />
 	</category>
 
 
-	<!-- <logger name="com.runway.bssp.activeXdemo" additivity="false"> <priority value="info" /> <appender-ref ref="activexAppender" 
-		/> </logger> 指定logger的设置，additivity指示是否遵循缺省的继承机制 -->
+	<!-- <logger name="com.runway.bssp.activeXdemo" additivity="false"> <priority value="info" /> <appender-ref ref="activexAppender" /> </logger> 指定logger的设置，additivity指示是否遵循缺省的继承机制 -->
 
 	<!-- 根logger的设置 -->
 	<root>

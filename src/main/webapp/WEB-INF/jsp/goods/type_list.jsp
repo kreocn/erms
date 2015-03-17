@@ -9,7 +9,7 @@
 </head>
 <body>
 	<h1>This is Type List Page!!</h1>
-	<h2>${name}</h2>
+	<h2>${goodsTypes}</h2>
 	<table border="1">
 	<tr>
 		<th>序号</th>

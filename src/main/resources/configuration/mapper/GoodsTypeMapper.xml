@@ -11,7 +11,7 @@
 	</insert>
 	<!-- 查询单条记录 -->
 	<select id="get" parameterType="int" resultType="org.erms.hello.bean.GoodsType">
-		<![CDATA[Select * from qkj_t_goods_type where uuid = #{uuid}]]>
+		<![CDATA[Select * from qkj_t_goods_type where uuid = #{value}]]>
 	</select>
 	<!-- 修改记录 -->
 	<update id="update" parameterType="org.erms.hello.bean.GoodsType">

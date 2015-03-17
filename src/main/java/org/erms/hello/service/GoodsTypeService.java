@@ -23,6 +23,7 @@ public class GoodsTypeService {
 	}
 
 	public GoodsType get(Object uuid) {
+		System.out.println("开始请求get");
 		return mapper.get(uuid);
 	}
 

@@ -15,15 +15,11 @@ public class Code {
 	}
 
 	public Code() {
-		ArrayList<StringBuffer> sbl = new ArrayList<>();
-		sbl.add(3, new StringBuffer());
-		for (int i = 0; i < 5; i++) {
-			try {
-				System.out.println(i + ":" + sbl.get(i));
-			} catch (Exception e) {
-				// TODO: handle exception
-			}
-		}
+		int i = 2147483647;
+		System.out.println(Integer.MAX_VALUE);
+		System.out.println(4294967295l / 2);
+		System.out.println(4294967295l);
+		System.out.println(Long.MAX_VALUE);
 	}
 
 	public static void main(String[] args) throws Exception {
